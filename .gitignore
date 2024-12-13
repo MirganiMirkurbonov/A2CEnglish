@@ -1,0 +1,33 @@
+# Build Folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio
+.vscode/
+.vs/
+*.vcxproj.user
+
+# Packages
+*.nupkg
+*.snupkg
+*.log
+
+# Rider IDE
+.idea/
+
+# Others
+*.db
+*.mdf
+*.ldf
+*.sql
+*.sqlproj
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
