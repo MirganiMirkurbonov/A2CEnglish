@@ -18,4 +18,7 @@ public class User : BaseEntity
 
     [Column("english_level")]
     public EnglishLevel EnglishLevel { get; set; } = EnglishLevel.A1;
+    
+    [Column("telegram_chat_id")]
+    public string? TelegramChatId { get; set; }
 }
