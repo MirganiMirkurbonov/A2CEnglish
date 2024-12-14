@@ -6,13 +6,8 @@ namespace Database;
 
 public partial class EntityContext : DbContext
 {
-    public EntityContext(DbContextOptions<EntityContext> options) : base(options)
-    {
-    }
-
-    public EntityContext()
-    {
-    }
+    public EntityContext(DbContextOptions<EntityContext> options) : base(options) { }
+    public EntityContext() { }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
