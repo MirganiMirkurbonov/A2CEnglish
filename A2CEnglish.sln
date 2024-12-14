@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotService", "BotService\BotService.csproj", "{6FF8BA0A-F1DE-4C11-8DF6-0B36A257E8B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{ACE0EE15-21D0-4B33-9E4B-9C7F7104A441}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{6FF8BA0A-F1DE-4C11-8DF6-0B36A257E8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FF8BA0A-F1DE-4C11-8DF6-0B36A257E8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FF8BA0A-F1DE-4C11-8DF6-0B36A257E8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE0EE15-21D0-4B33-9E4B-9C7F7104A441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE0EE15-21D0-4B33-9E4B-9C7F7104A441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE0EE15-21D0-4B33-9E4B-9C7F7104A441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE0EE15-21D0-4B33-9E4B-9C7F7104A441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

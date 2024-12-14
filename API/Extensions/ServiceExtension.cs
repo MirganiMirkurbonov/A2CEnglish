@@ -1,5 +1,6 @@
 using Application.Extensions;
 using DataAccess.Extensions;
+using Database.Extensions;
 using Domain.Extensions;
 using Infrastructure.Extensions;
 
@@ -13,6 +14,7 @@ public static class ServiceExtension
     {
         services
             .AddDomain(configuration)
+            .AddDatabase(configuration)
             .AddDataAccess(configuration)
             .AddApplication(configuration)
             .AddInfrastructure(configuration);

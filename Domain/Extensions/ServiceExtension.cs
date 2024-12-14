@@ -1,3 +1,4 @@
+using Domain.Models.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,6 +9,8 @@ public static class ServiceExtension
     public static IServiceCollection AddDomain(this IServiceCollection services,
         IConfiguration configuration)
     {
-        return services;
+        return services
+            .Configure<BotOptions>(configuration.GetSection("BotOptions"))
+            .Configure<DatabaseOptions>(configuration.GetSection("DatabaseOptions"));
     }
 }
