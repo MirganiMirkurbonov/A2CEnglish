@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Database.Tables;
 using Microsoft.EntityFrameworkCore;
 
 namespace Database;
@@ -14,6 +13,4 @@ public partial class EntityContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
     }
-    
-    internal DbSet<User> Users { get; set; }
 }

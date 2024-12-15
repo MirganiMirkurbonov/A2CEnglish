@@ -8,6 +8,9 @@ public class User : BaseEntity
     public string Name { get; set; } = null!;
     public string? Phone { get; set; }
     public string? Email { get; set; }
+    
+    public string? Password { get; set; }
     public EnglishLevel EnglishLevel { get; set; } = EnglishLevel.A1;
     public string? TelegramChatId { get; set; }
+    public List<UserSession> UserSessions { get; set; }
 }
