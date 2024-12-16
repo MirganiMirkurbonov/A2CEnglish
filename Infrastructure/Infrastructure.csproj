@@ -15,9 +15,4 @@
       </Reference>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Handlers\" />
-      <Folder Include="Interfaces\" />
-    </ItemGroup>
-
 </Project>
