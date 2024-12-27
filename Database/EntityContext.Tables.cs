@@ -5,5 +5,6 @@ namespace Database;
 
 public partial class EntityContext
 {
-    internal DbSet<User> Users { get; set; }
+    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<UserSession> UserSessions { get; set; }
 }

@@ -39,7 +39,7 @@ public static class ServiceExtension
                     .Select(x => new
                     {
                         Field = x.Key,
-                        Message = x.Value.Errors.First().ErrorMessage // Get the first error message
+                        Message = x.Value?.Errors.First().ErrorMessage // Get the first error message
                     })
                     .FirstOrDefault(); // Get the first error object
 
