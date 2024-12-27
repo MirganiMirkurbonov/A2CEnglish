@@ -1,7 +1,7 @@
 namespace Infrastructure.Models.Token;
 
 public record GenerateTokenModel(
-    Guid Id,
+    Guid UserId,
     string Name,
     string? Email,
     string? Phone);
