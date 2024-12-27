@@ -26,7 +26,7 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
             .HasMaxLength(500)
             .IsRequired();
 
-        // Category: Optional with max length
+        // Category: Optional with max length.
         builder.Property(c => c.Category)
             .HasColumnName("category")
             .HasMaxLength(50);
