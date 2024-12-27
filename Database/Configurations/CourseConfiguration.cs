@@ -34,7 +34,7 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
         // EnglishLevel: Enum stored as integer
         builder.Property(c => c.EnglishLevel)
             .HasColumnName("english_level")
-            .HasConversion<int>()
+            .HasConversion<short>()
             .IsRequired();
 
         // CreatedUserId: Required foreign key
