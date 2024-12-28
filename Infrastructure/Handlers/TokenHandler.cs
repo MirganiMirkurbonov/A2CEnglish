@@ -7,6 +7,6 @@ internal class TokenHandler : ITokenHandler
 {
     public async Task<GenerateTokenResult> GenerateToken(GenerateTokenModel model)
     {
-        
+        throw new NotImplementedException();
     }
 }

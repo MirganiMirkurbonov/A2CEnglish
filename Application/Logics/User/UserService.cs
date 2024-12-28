@@ -19,8 +19,8 @@ internal class UserService(EntityContext context) : IUser
             return new ErrorModel(ErrorEnum.UserNotFound);
         if (!PasswordExtension.VerifyPassword(request.Password, hasUser.Password!))
             return new ErrorModel(ErrorEnum.InvalidPassword);
-        
-        
+
+        throw new NotImplementedException();
     }
 
     public async Task<DefaultResponse<TokenResult>> SignUp(SignUpRequest request)

@@ -16,7 +16,7 @@ public class GenerateTokenModelMapper : IRegister
     private static GenerateTokenModel Map(SignUpRequest request)
     {
         return new GenerateTokenModel(
-            Id: Guid.NewGuid(),
+            UserId: Guid.NewGuid(),
             Name: request.Name,
             Email: request.Email,
             Phone: request.Phone);

@@ -6,7 +6,8 @@ namespace Application.Extensions;
 
 public static class ServiceExtension
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services,
+    public static IServiceCollection AddApplication(
+        this IServiceCollection services,
         IConfiguration configuration)
     {
         services

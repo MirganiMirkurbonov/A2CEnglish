@@ -12,4 +12,8 @@ public class ErrorModel
         Code = ((short)error).ToString();
         Message = error.ToString();
     }
+
+    public ErrorModel()
+    {
+    }
 }
