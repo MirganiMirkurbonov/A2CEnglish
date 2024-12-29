@@ -26,8 +26,12 @@ obj/
 *.sql
 *.sqlproj
 
+
 # System files
 .DS_Store
 Thumbs.db
 desktop.ini
 
+# configuration json files
+/API/appsettings.Development.json
+/API/appsettings.Production.json
