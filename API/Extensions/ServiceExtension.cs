@@ -23,7 +23,6 @@ public static class ServiceExtension
             .AddApplication(configuration)
             .AddInfrastructure(configuration);
         
-        TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
         return services;
     }
 
@@ -40,7 +39,7 @@ public static class ServiceExtension
                         Field = x.Key,
                         Message = x.Value?.Errors.First().ErrorMessage // Get the first error message
                     })
-                    .FirstOrDefault(); // Get the first error object
+                    .FirstOrDefault();
 
                 if (error != null)
                 {

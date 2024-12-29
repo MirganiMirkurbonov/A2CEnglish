@@ -1,5 +1,5 @@
 namespace Infrastructure.Models.Token;
 
 public record GenerateTokenResult(
-    string AccessToken,
+    string Token,
     DateTime ExpireDate);

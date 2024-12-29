@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 
 namespace Domain.Extensions;
 
-public class PasswordExtension
+public static class PasswordExtension
 {
     private const int SaltSize = 16; // 128-bit salt
     private const int HashSize = 32; // 256-bit hash
@@ -13,7 +13,7 @@ public class PasswordExtension
     /// </summary>
     /// <param name="password">The plaintext password.</param>
     /// <returns>The hashed password as a string (salt + hash).</returns>
-    public static string HashPassword(string password)
+    public static string HashPassword(this string password)
     {
         // Generate a unique salt
         byte[] salt = GenerateSalt();

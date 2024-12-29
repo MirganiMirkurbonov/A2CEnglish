@@ -19,6 +19,7 @@ public static class ServiceExtension
 
         return services
             .Configure<BotOptions>(configuration.GetSection("BotOptions"))
-            .Configure<DatabaseOptions>(configuration.GetSection("DatabaseOptions"));
+            .Configure<DatabaseOptions>(configuration.GetSection("DatabaseOptions"))
+            .Configure<JwtTokenOptions>(configuration.GetSection("JwtTokenOptions"));
     }
 }

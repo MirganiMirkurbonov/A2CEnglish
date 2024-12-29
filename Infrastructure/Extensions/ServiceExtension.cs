@@ -1,3 +1,6 @@
+using Domain.Models.API.User;
+using Infrastructure.Handlers;
+using Infrastructure.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,6 +11,6 @@ public static class ServiceExtension
     public static IServiceCollection AddInfrastructure(this IServiceCollection services,
         IConfiguration configuration)
     {
-        return services;
+        return services.AddScoped<ITokenHandler, TokenHandler>();
     }
 }
