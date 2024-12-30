@@ -1,4 +1,5 @@
 using API.Extensions;
+using Database.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,4 +23,10 @@ if (app.Environment.IsDevelopment())
         .UseSwaggerUI();
 }
 app.MapControllers();
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<PermissionSeeder>();
+    seeder.SeedPermissions();
+}
+
 app.Run();

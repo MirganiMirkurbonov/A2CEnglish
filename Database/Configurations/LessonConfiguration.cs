@@ -22,8 +22,7 @@ internal class LessonConfiguration : IEntityTypeConfiguration<Lesson>
 
         // Content: Optional
         builder.Property(l => l.Content)
-            .HasColumnName("content")
-            .HasColumnType("nvarchar(max)");
+            .HasColumnName("content");
 
         // VideoUrl: Optional with max length
         builder.Property(l => l.VideoUrl)

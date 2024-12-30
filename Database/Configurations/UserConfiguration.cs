@@ -33,5 +33,15 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
         
         builder.Property(u => u.Password)
             .HasColumnName("password");
+
+        builder.Property(u => u.RoleId)
+            .HasColumnName("role_id")
+            .IsRequired();
+
+        // Relationships
+        builder.HasOne(u => u.Role)
+            .WithMany(x=>x.Users)
+            .HasForeignKey(u => u.RoleId)
+            .OnDelete(DeleteBehavior.Restrict); // Prevent cascading delete
     }
 }

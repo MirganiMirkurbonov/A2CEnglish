@@ -27,16 +27,25 @@ internal class UserService(EntityContext context, ITokenHandler tokenHandler) : 
 
     public async Task<DefaultResponse<TokenResult>> SignUp(SignUpRequest request)
     {
-        var isEmailUnique = await context.Users.AnyAsync(x => x.Email != request.Email);
-        if (isEmailUnique == false)
+        var isEmailAlreadyExists = await context.Users.AnyAsync(x => x.Email == request.Email);
+        if (isEmailAlreadyExists)
             return new ErrorModel(ErrorEnum.UserAlreadyExists);
 
         var newUser = request.Adapt<Database.Tables.User>();
+        newUser.RoleId = await GetDefaultUserRoleId();
 
         await context.Users.AddAsync(newUser);
         await context.SaveChangesAsync();
 
-        var tokenModel = await tokenHandler.GenerateToken(newUser.Adapt<GenerateTokenModel>());
+        var tokenModel = await tokenHandler.GenerateToken(
+            newUser.Adapt<GenerateTokenModel>());
+
         return tokenModel.Adapt<TokenResult>();
+    }
+
+    private async ValueTask<Guid> GetDefaultUserRoleId()
+    {
+        var userRole = await context.Roles.FirstAsync(x => x.Keyword == "user");
+        return userRole.Id;
     }
 }

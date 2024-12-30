@@ -11,5 +11,7 @@ public class User : BaseEntity
     public string? Password { get; set; }
     public EnglishLevel EnglishLevel { get; set; } = EnglishLevel.A1;
     public string? TelegramChatId { get; set; }
+    public Guid RoleId { get; set; }
+    public virtual Role Role { get; set; }
     public List<UserSession> UserSessions { get; set; }
 }

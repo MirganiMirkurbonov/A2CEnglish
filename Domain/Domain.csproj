@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Models\DataAccess\Permission\" />
       <Folder Include="Models\Request\" />
     </ItemGroup>
 
