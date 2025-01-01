@@ -1,5 +1,5 @@
-﻿using Database.Enums;
-using Database.Models;
+﻿using Database.Models;
+using Domain.Enums;
 
 namespace Database.Tables;
 

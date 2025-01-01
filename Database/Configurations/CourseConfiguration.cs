@@ -31,18 +31,22 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
             .HasColumnName("category")
             .HasMaxLength(50);
 
-        // EnglishLevel: Enum stored as integer
+        builder.Property(p => p.PhotoPath)
+            .HasColumnName("photo_path")
+            .HasMaxLength(255);
+
         builder.Property(c => c.EnglishLevel)
             .HasColumnName("english_level")
             .HasConversion<short>()
             .IsRequired();
 
-        // CreatedUserId: Required foreign key
         builder.Property(c => c.CreatedUserId)
             .HasColumnName("created_user_id")
             .IsRequired();
+
+        builder.Property(i => i.IsVisible)
+            .HasColumnName("is_visible");
         
-        // Define relationship between Course and Lessons
         builder.HasMany(c => c.Lessons)
             .WithOne(l => l.Course)
             .HasForeignKey(l => l.CourseId)

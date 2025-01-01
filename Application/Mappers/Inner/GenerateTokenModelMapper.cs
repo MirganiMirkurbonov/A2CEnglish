@@ -1,9 +1,8 @@
 using Database.Tables;
-using Domain.Models.API.User;
 using Infrastructure.Models.Token;
 using Mapster;
 
-namespace Application.Mappers;
+namespace Application.Mappers.Inner;
 
 public class GenerateTokenModelMapper : IRegister
 {

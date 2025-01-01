@@ -1,4 +1,4 @@
-namespace Database.Enums;
+namespace Domain.Enums;
 
 public enum EnglishLevel
 {

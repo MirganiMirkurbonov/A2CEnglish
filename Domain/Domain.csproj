@@ -22,8 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Models\API\Lesson\" />
       <Folder Include="Models\DataAccess\Permission\" />
-      <Folder Include="Models\Request\" />
     </ItemGroup>
 
 </Project>

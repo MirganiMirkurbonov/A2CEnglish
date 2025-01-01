@@ -1,4 +1,5 @@
 using System.Reflection;
+using Application.Logics.Course;
 using Application.Logics.User;
 using Mapster;
 using Microsoft.Extensions.Configuration;
@@ -20,7 +21,9 @@ public static class ServiceExtension
         config.Default.IgnoreNonMapped(true);
 
         services
-            .AddScoped<IUser, UserService>();
+            .AddScoped<IUser, UserService>()
+            .AddScoped<ICourse, CourseService>();
+
         return services;
     }
 }

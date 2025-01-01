@@ -2,7 +2,7 @@ using Domain.Models.API.User;
 using Infrastructure.Models.Token;
 using Mapster;
 
-namespace Application.Mappers;
+namespace Application.Mappers.Result;
 
 public class TokenResultMapper : IRegister
 {

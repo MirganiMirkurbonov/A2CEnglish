@@ -1,10 +1,9 @@
-using Database.Enums;
 using Database.Tables;
 using Domain.Extensions;
 using Domain.Models.API.User;
 using Mapster;
 
-namespace Application.Mappers;
+namespace Application.Mappers.Tables;
 
 public class UserMapper : IRegister
 {
@@ -25,7 +24,7 @@ public class UserMapper : IRegister
             Phone = src.Item1.Phone,
             Role = src.Item2,
             RoleId = src.Item2.Id,
-            EnglishLevel = EnglishLevel.A1
+            EnglishLevel = src.Item1.EnglishLevel
         };
     }
 }

@@ -1,12 +1,9 @@
-using System.Reflection;
 using System.Text;
 using Application.Extensions;
-using DataAccess.Extensions;
 using Database.Extensions;
 using Domain.Extensions;
 using Domain.Models.Response;
 using Infrastructure.Extensions;
-using Mapster;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -23,7 +20,6 @@ public static class ServiceExtension
         services
             .AddDomain(configuration)
             .AddDatabase(configuration)
-            .AddDataAccess(configuration)
             .AddApplication(configuration)
             .AddInfrastructure(configuration);
         
