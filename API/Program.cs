@@ -1,5 +1,6 @@
 using API.Extensions;
 using Database.Helpers;
+using Microsoft.Extensions.Caching.Hybrid;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ builder.Services.AddControllers();
 builder.Services
     .AddEndpointsApiExplorer()
     .AddSwaggerGen();
+
+#pragma warning disable EXTEXP0018
+builder.Services.AddHybridCache(); 
+#pragma warning restore EXTEXP0018
 
 builder.Services.AddHandlerForBadRequest();
 
