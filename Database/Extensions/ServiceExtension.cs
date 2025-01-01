@@ -1,4 +1,6 @@
-﻿using Database.Helpers;
+﻿using Database.DataAccess;
+using Database.Helpers;
+using Database.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
@@ -8,7 +10,8 @@ namespace Database.Extensions;
 
 public static class ServiceExtension
 {
-    public static IServiceCollection AddDatabase(this IServiceCollection services,
+    public static IServiceCollection AddDatabase(
+        this IServiceCollection services,
         IConfiguration configuration)
     {
         services.AddDbContext<EntityContext>(options =>
@@ -16,7 +19,11 @@ public static class ServiceExtension
             options.UseNpgsql(configuration["DatabaseOptions:ConnectionString"]);
             options.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         });
-        services.AddScoped<PermissionSeeder>();
+
+        services
+            .AddScoped<IPermissionDataAccess, PermissionDataAccess>()
+            .AddScoped<PermissionSeeder>();
+
         return services;
     }
 }

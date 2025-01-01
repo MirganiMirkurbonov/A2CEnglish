@@ -28,17 +28,17 @@ public class PermissionSeeder(EntityContext dbContext, ILogger<PermissionSeeder>
                 var httpAttribute = method.GetCustomAttribute<HttpMethodAttribute>();
                 var httpVerb = httpAttribute?.HttpMethods.FirstOrDefault() ?? "UNKNOWN";
 
-                var permissionName = $"{controllerName}.{method.Name}";
+                var permissionKeyword = $"{controllerName}.{method.Name}".ToLower();
 
                 // Check if permission already exists
-                if (!dbContext.Permissions.Any(p => p.Name == permissionName))
+                if (!dbContext.Permissions.Any(p => p.Keyword == permissionKeyword))
                 {
                     dbContext.Permissions.Add(new Permission
                     {
-                        Keyword = permissionName.ToLower(),
+                        Keyword = permissionKeyword,
                         Name = $"{httpVerb} {controllerName}/{method.Name}"
                     });
-                    logger.LogInformation($"Permission added: {permissionName}");
+                    logger.LogInformation($"Permission added: {permissionKeyword}");
                 }
             }
         }

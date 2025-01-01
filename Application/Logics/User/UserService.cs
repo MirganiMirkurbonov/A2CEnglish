@@ -1,5 +1,6 @@
 using Mapster;
 using Database;
+using Database.Tables;
 using Domain.Enums;
 using Domain.Extensions;
 using Domain.Models.API.User;
@@ -31,8 +32,9 @@ internal class UserService(EntityContext context, ITokenHandler tokenHandler) : 
         if (isEmailAlreadyExists)
             return new ErrorModel(ErrorEnum.UserAlreadyExists);
 
-        var newUser = request.Adapt<Database.Tables.User>();
-        newUser.RoleId = await GetDefaultUserRoleId();
+        var role = await GetDefaultUserRole();
+
+        var newUser = (request, role).Adapt<Database.Tables.User>();
 
         await context.Users.AddAsync(newUser);
         await context.SaveChangesAsync();
@@ -43,9 +45,9 @@ internal class UserService(EntityContext context, ITokenHandler tokenHandler) : 
         return tokenModel.Adapt<TokenResult>();
     }
 
-    private async ValueTask<Guid> GetDefaultUserRoleId()
+    private async ValueTask<Role> GetDefaultUserRole()
     {
         var userRole = await context.Roles.FirstAsync(x => x.Keyword == "user");
-        return userRole.Id;
+        return userRole;
     }
 }

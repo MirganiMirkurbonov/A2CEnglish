@@ -10,10 +10,6 @@ public class GenerateTokenModelMapper : IRegister
     public void Register(TypeAdapterConfig config)
     {
         config
-            .NewConfig<SignUpRequest, GenerateTokenModel>()
-            .ConstructUsing(src => Map(src));
-        
-        config
             .NewConfig<User, GenerateTokenModel>()
             .ConstructUsing(src => Map(src));
     }
@@ -22,15 +18,7 @@ public class GenerateTokenModelMapper : IRegister
     {
         return new GenerateTokenModel(
             UserId: request.Id,
-            Name: request.Name,
-            Email: request.Email,
-            Phone: request.Phone);
-    }
-
-    private static GenerateTokenModel Map(SignUpRequest request)
-    {
-        return new GenerateTokenModel(
-            UserId: Guid.NewGuid(),
+            Role: request.Role.Keyword,
             Name: request.Name,
             Email: request.Email,
             Phone: request.Phone);

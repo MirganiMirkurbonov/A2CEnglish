@@ -25,7 +25,8 @@ internal class TokenHandler(IOptions<JwtTokenOptions> options) : ITokenHandler
             new(JwtRegisteredClaimNames.Name, model.Name),
             new(JwtRegisteredClaimNames.Email, model.Email ?? string.Empty),
             new(JwtRegisteredClaimNames.PhoneNumber, model.Phone ?? string.Empty),
-            new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new ("role", model.Role)
         };
 
         var tokenDescriptor = new JwtSecurityToken(

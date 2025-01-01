@@ -1,4 +1,5 @@
 ﻿using Domain.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -6,6 +7,7 @@ namespace API.Controllers;
 [ApiController]
 [Route("api/v1/[controller]/[action]")]
 [AutoPermission]
+[Authorize]
 public class TestController : ControllerBase
 {
     [HttpPost]
