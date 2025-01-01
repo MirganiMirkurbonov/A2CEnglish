@@ -7,7 +7,6 @@ public class Course : BaseEntity
 {
     public string Title { get; set; } = null!;
     public string Description { get; set; } = null!;
-    public string? Category { get; set; }
     public string? PhotoPath { get; set; }
     public EnglishLevel EnglishLevel { get; set; }
     public Guid CreatedUserId { get; set; }

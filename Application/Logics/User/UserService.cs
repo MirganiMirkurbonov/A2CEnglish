@@ -15,7 +15,7 @@ internal class UserService(EntityContext context, ITokenHandler tokenHandler) : 
 {
     public async Task<DefaultResponse<TokenResult>> SignIn(SignInRequest request)
     {
-        var user = await context.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
+        var user = await context.Users.Include(x=>x.Role).FirstOrDefaultAsync(x => x.Email == request.Email);
 
         if (user == null)
             return new ErrorModel(ErrorEnum.UserNotFound);

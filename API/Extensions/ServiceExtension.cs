@@ -65,13 +65,18 @@ public static class ServiceExtension
 
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo
+            c.SwaggerDoc("admin", new OpenApiInfo
             {
                 Version = "v1",
-                Title = "PlumWorkFlow API",
-                Description = "PlumWorkFlow API",
-                TermsOfService = new Uri("https://example.com/terms")
+                Title = " A2C Admin API"
             });
+
+            c.SwaggerDoc("user", new OpenApiInfo
+            {
+                Version = "v1",
+                Title = "A2C User API"
+            });
+
 
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
             {

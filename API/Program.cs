@@ -22,9 +22,13 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app
-        .UseSwagger()
-        .UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/admin/swagger.json", "admin");
+        c.SwaggerEndpoint("/swagger/user/swagger.json", "user");
+    });
+
 }
 
 app.MapControllers();
@@ -33,6 +37,7 @@ using (var scope = app.Services.CreateScope())
 {
     var seeder = scope.ServiceProvider.GetRequiredService<PermissionSeeder>();
     seeder.SeedPermissions();
+    seeder.AddAllPermissionsToAdmin();
 }
 
 app

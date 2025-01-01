@@ -1,4 +1,5 @@
 using System.Reflection;
+using Application.AdminLogics.Course;
 using Application.Logics.Course;
 using Application.Logics.User;
 using Mapster;
@@ -19,7 +20,11 @@ public static class ServiceExtension
 
         // Disable default mapping for all types (optional, for strict mapping)
         config.Default.IgnoreNonMapped(true);
-
+        
+        // for admin
+        services
+            .AddScoped<ICourseAdminService, CourseAdminService>();
+        // for user
         services
             .AddScoped<IUser, UserService>()
             .AddScoped<ICourse, CourseService>();

@@ -1,19 +1,22 @@
+using API.Helpers;
 using Application.Logics.User;
 using Domain.Models.API.User;
 using Domain.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace API.Controllers.Admin;
 
 [ApiController]
-[Route("api/v1/[controller]")]
-public class AuthorizationController(IUser user) : ControllerBase
+[Route("api-admin/v1/[controller]/[action]")]
+[ApiExplorerSettings(GroupName = "admin")]
+
+public class AuthorizationController(IUser user) : MainControllerBase<AuthorizationController>
 {
-    [HttpPost("sign-in")]
+    [HttpPost]
     public async Task<DefaultResponse<TokenResult>> SignIn(SignInRequest request)
         => await user.SignIn(request);
 
-    [HttpPost("sign-up")]
+    /*[HttpPost("sign-up")]
     public async Task<DefaultResponse<TokenResult>> SignUp(SignUpRequest request)
-        => await user.SignUp(request);
+        => await user.SignUp(request);*/
 }

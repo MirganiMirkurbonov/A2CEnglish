@@ -45,4 +45,28 @@ public class PermissionSeeder(EntityContext dbContext, ILogger<PermissionSeeder>
 
         dbContext.SaveChanges();
     }
+
+    public void AddAllPermissionsToAdmin()
+    {
+        var adminRole = dbContext.Roles.FirstOrDefault(r => r.Keyword == "admin");
+        if (adminRole != null)
+        {
+            var rolePermissions = dbContext.RolePermissions.Where(rp => rp.RoleId == adminRole.Id);
+            var allPermissions = dbContext.Permissions.ToList();
+            foreach (var permission in allPermissions)
+            {
+                if (!rolePermissions.Any(rp => rp.PermissionId == permission.Id))
+                {
+                    dbContext.RolePermissions.Add(new RolePermission
+                    {
+                        RoleId = adminRole.Id,
+                        PermissionId = permission.Id
+                    });
+                    logger.LogInformation($"Added permission {permission.Keyword} to admin role");
+                }
+            }
+
+            dbContext.SaveChanges();
+        }
+    }
 }
