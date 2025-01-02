@@ -4,5 +4,7 @@ public enum ErrorEnum
 {
     UserNotFound,
     InvalidPassword,
-    UserAlreadyExists
+    UserAlreadyExists,
+    CourseNotFound,
+    PhotoUploadingFailed
 }

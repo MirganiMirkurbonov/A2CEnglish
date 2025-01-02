@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers.User;
 
 [ApiController]
-[Route("api/v1/[controller]/[action]")]
+[Route("api/[controller]/[action]")]
 [ApiExplorerSettings(GroupName = "user")]
 
 public class AuthorizationController(IUser user) : MainControllerBase<AuthorizationController>
