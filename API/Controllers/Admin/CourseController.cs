@@ -12,7 +12,7 @@ namespace API.Controllers.Admin;
 [Authorize]
 [AutoPermission]
 [ApiExplorerSettings(GroupName = "admin")]
-[Route("api/[controller]/[action]")]
+[Route("api-admin/[controller]/[action]")]
 public class CourseController(ICourseAdminService courseAdminService) : MainControllerBase<CourseController>
 {
     [HttpPost]

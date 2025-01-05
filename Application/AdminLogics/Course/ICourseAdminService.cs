@@ -10,6 +10,5 @@ public interface ICourseAdminService
     Task<DefaultResponse<CourseSingleViewModel>> UploadPhotoAsync(UploadCoursePhotoRequest request, Guid currentUserId);
     Task<DefaultResponse<CourseSingleViewModel>> UpdateAsync(UpdateCourseRequest request, Guid currentUserId);
     Task<DefaultResponse<CourseSingleViewModel>> ToggleVisibilityAsync(Guid courseId, Guid currentUserId);
-
     Task<DefaultResponse<ListResponse<CourseListViewModel>>> FilterAsync(FilterCourseRequest request, Guid currentUserId);
 }
