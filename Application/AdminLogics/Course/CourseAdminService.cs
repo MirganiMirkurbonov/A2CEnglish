@@ -75,4 +75,22 @@ internal class CourseAdminService(EntityContext context, IFileHandler fileHandle
         await context.SaveChangesAsync();
         return course.Adapt<CourseSingleViewModel>();
     }
+
+    public async Task<DefaultResponse<ListResponse<CourseListViewModel>>> FilterAsync(FilterCourseRequest request, Guid currentUserId)
+    {
+        var query = context.Courses.AsQueryable();
+
+        if (!string.IsNullOrEmpty(request.Title))
+        {
+            query = query.Where(course => course.Title.Contains(request.Title));
+        }
+
+        if (request.EnglishLevel.HasValue)
+        {
+            query = query.Where(course => course.EnglishLevel == request.EnglishLevel);
+        }
+
+        var filteredCourses = await query.Select(x => x.Adapt<CourseListViewModel>()).ToListAsync();
+        return new ListResponse<CourseListViewModel>(filteredCourses);
+    }
 }

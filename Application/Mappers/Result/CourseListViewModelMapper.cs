@@ -1,4 +1,5 @@
 ﻿using Database.Tables;
+using Domain.Extensions;
 using Domain.Models.API.Course;
 using Mapster;
 
@@ -20,7 +21,7 @@ public class CourseListViewModelMapper : IRegister
             Title: src.Title,
             Description: src.Description,
             EnglishLevel: src.EnglishLevel,
-            PhotoPath: src.PhotoPath,
+            PhotoPath: src.PhotoPath.GetServerPath(),
             CreatedDate: src.CreatedDate,
             IsVisible: src.IsVisible);
     }

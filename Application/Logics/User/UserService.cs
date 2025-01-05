@@ -13,9 +13,9 @@ namespace Application.Logics.User;
 
 internal class UserService(EntityContext context, ITokenHandler tokenHandler) : IUser
 {
-    public async Task<DefaultResponse<TokenResult>> SignIn(SignInRequest request)
+    public async Task<DefaultResponse<TokenResult>> SignInAsync(SignInRequest request)
     {
-        var user = await context.Users.Include(x=>x.Role).FirstOrDefaultAsync(x => x.Email == request.Email);
+        var user = await context.Users.Include(x=>x.Role).FirstOrDefaultAsync(x => x.Email.ToLower() == request.Email.ToLower());
 
         if (user == null)
             return new ErrorModel(ErrorEnum.UserNotFound);
@@ -26,7 +26,7 @@ internal class UserService(EntityContext context, ITokenHandler tokenHandler) : 
         return tokenModel.Adapt<TokenResult>();
     }
 
-    public async Task<DefaultResponse<TokenResult>> SignUp(SignUpRequest request)
+    public async Task<DefaultResponse<TokenResult>> SignUpAsync(SignUpRequest request)
     {
         var isEmailAlreadyExists = await context.Users.AnyAsync(x => x.Email == request.Email);
         if (isEmailAlreadyExists)

@@ -14,7 +14,7 @@ public class AuthorizationController(IUser user) : MainControllerBase<Authorizat
 {
     [HttpPost]
     public async Task<DefaultResponse<TokenResult>> SignIn(SignInRequest request)
-        => await user.SignIn(request);
+        => await user.SignInAsync(request);
 
     /*[HttpPost("sign-up")]
     public async Task<DefaultResponse<TokenResult>> SignUp(SignUpRequest request)

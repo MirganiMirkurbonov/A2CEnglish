@@ -5,6 +5,6 @@ namespace Application.Logics.User;
 
 public interface IUser
 {
-    Task<DefaultResponse<TokenResult>> SignIn(SignInRequest request);
-    Task<DefaultResponse<TokenResult>> SignUp(SignUpRequest request);
+    Task<DefaultResponse<TokenResult>> SignInAsync(SignInRequest request);
+    Task<DefaultResponse<TokenResult>> SignUpAsync(SignUpRequest request);
 }

@@ -88,8 +88,6 @@ public static class ServiceExtension
                 BearerFormat = "JWT"
             });
 
-
-
             c.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 {
